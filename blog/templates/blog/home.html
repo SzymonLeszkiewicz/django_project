@@ -1,0 +1,11 @@
+{% extends "blog/base.html" %}
+{% block content %}
+    {% for post in posts %}
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur autem aliquam, nobis molestias quibusdam atque animi laboriosam reprehenderit architecto. Accusamus, nisi fugit nulla nesciunt voluptatem debitis illo assumenda optio at.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur autem aliquam, nobis molestias quibusdam atque animi laboriosam reprehenderit architecto. Accusamus, nisi fugit nulla nesciunt voluptatem debitis illo assumenda optio at.</p>
+        <h1 class="row">{{ post.author }}</h1>
+        <p>By {{ post.author }} on {{post.date_posted|date:"F d, Y" }}</p>
+        <p>{{ post.content }}</p>
+        
+    {% endfor %}
+{% endblock content %}
