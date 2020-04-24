@@ -36,8 +36,13 @@
           </div>
           <!-- Navbar Right Side -->
           <div class="navbar-nav">
-            <a class="nav-item nav-link" href="#">Login</a>
-            <a class="nav-item nav-link" href="#">Register</a>
+            {% if user.is_authenticated %}
+              <a class="nav-item nav-link" href="{% url 'logout' %}">Log out</a>
+              <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
+            {% else %}
+              <a class="nav-item nav-link" href="#">Login</a>
+              <a class="nav-item nav-link" href="#">Register</a>
+            {% endif %}
           </div>
         </div>
       </div>
@@ -46,13 +51,12 @@
   <main role="main" class="container">
     <div class="row">
       <div class="col-md-8">
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo tenetur animi dignissimos doloribus voluptatibus eius aliquid voluptates est atque dolor, quasi ea? Recusandae, vero. Quam sint vitae explicabo deleniti molestiae.</p>
         {% if messages %}
-          {%for message in messages %}
-          <div class="alert alert-{{ message.tags }}">
-            {{ message }}
-          </div>
-          {%endfor%}
+        {%for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+          {{ message }}
+        </div>
+        {%endfor%}
         {% endif%}
         {% block content %}{% endblock %}
       </div>
@@ -75,14 +79,14 @@
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+  </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+  </script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+  </script>
 </body>
 
 </html>
