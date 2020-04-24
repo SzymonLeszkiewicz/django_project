@@ -1,21 +1,6 @@
 from django.shortcuts import render
 from .models import Post
 
-posts = [
-    {
-        'autor': 'SzymonL',
-        'tytul': 'pierwszy',
-        'tresc': 'Pierwsza tresc',
-        'data': 'Wrzesien 12'
-    },
-    {
-        'autor': 'Jakub',
-        'tytul': 'drugi',
-        'tresc': 'Druga tresc',
-        'data': 'Grudzien 12'
-
-    }
-]
 
 
 def home(request):

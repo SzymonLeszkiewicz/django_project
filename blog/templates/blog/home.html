@@ -1,11 +1,15 @@
 {% extends "blog/base.html" %}
 {% block content %}
     {% for post in posts %}
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur autem aliquam, nobis molestias quibusdam atque animi laboriosam reprehenderit architecto. Accusamus, nisi fugit nulla nesciunt voluptatem debitis illo assumenda optio at.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur autem aliquam, nobis molestias quibusdam atque animi laboriosam reprehenderit architecto. Accusamus, nisi fugit nulla nesciunt voluptatem debitis illo assumenda optio at.</p>
-        <h1 class="row">{{ post.author }}</h1>
-        <p>By {{ post.author }} on {{post.date_posted|date:"F d, Y" }}</p>
-        <p>{{ post.content }}</p>
-        
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ post.author }}</a>
+              <small class="text-muted">{{ post.date_posted }}</small>
+            </div>
+            <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+            <p class="article-content">{{ post.content }}</p>
+          </div>
+        </article>
     {% endfor %}
 {% endblock content %}
